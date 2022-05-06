@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+  generation: 1
+  labels:
+    app.kubernetes.io/name: php-example
+  name: php-example
+spec:
+  rules:
+  - host: phpexample.zoot-k8s-lab.cf
+    http:
+      paths:
+      - backend:
+          service:
+            name: php-example
+            port:
+              name: http
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - phpexample.zoot-k8s-lab.cf
+    secretName: phpexample.zoot-k8s-lab.cf-tls
