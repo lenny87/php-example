@@ -10,7 +10,7 @@ metadata:
   name: php-example
 spec:
   rules:
-  - host: phpexample.zoot-k8s-lab.cf
+  - host: phpexample.k8s-lab.cf
     http:
       paths:
       - backend:
@@ -23,4 +23,4 @@ spec:
   tls:
   - hosts:
     - phpexample.zoot-k8s-lab.cf
-    secretName: phpexample.zoot-k8s-lab.cf-tls
+    secretName: phpexample.k8s-lab.cf-tls
